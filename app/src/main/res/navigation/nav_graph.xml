@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/countryListFragment">
+
+    <fragment
+        android:id="@+id/countryListFragment"
+        android:name="com.shante.countrydirectory.presentation.ui.CountryListFragment"
+        android:label="CountryListFragment"
+        tools:layout="@layout/country_list_fragment"
+        >
+        <action
+            android:id="@+id/action_countryListFragment_to_countryDetailsFragment"
+            app:destination="@id/countryDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countryDetailsFragment"
+        android:name="com.shante.countrydirectory.presentation.ui.CountryDetailsFragment"
+        android:label="CountryDetailsFragment"
+        tools:layout="@layout/country_details_fragment"
+        >
+        <argument
+            android:name="country"
+            app:argType="com.shante.countrydirectory.domain.Country" />
+    </fragment>
+</navigation>

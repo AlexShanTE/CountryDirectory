@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/shaped_rectangle"
+    android:layout_margin="@dimen/base_margin"
+    >
+
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_height="@dimen/base_flag_height"
+        android:layout_width="@dimen/base_flag_width"
+        android:padding="@dimen/base_padding"
+        android:layout_gravity="center"
+        tools:src="@tools:sample/avatars"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:padding="@dimen/base_padding"
+        >
+
+        <TextView
+            android:id="@+id/countryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="@dimen/base_padding"
+            android:textSize="@dimen/addition_text_size"
+            android:textStyle="bold"
+            tools:text="Country" />
+
+        <TextView
+            android:id="@+id/capitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="@dimen/base_padding"
+            android:singleLine="true"
+            android:textSize="@dimen/base_text_size"
+            tools:text="Capital" />
+
+    </LinearLayout>
+
+</LinearLayout>

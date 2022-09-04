@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CountryDirectory</string>
+    <string name="countryName">The name of the country</string>
+    <string name="none">None</string>
+
+
+    <string name="capital">Capital: %1$s</string>
+    <string name="region">Region: %1$s</string>
+    <string name="subRegion">Sub region: %1$s</string>
+    <string name="population">Population: %1$s</string>
+    <string name="area">Area: %1$s</string>
+    <string name="languages">Languages: %1$s</string>
 </resources>

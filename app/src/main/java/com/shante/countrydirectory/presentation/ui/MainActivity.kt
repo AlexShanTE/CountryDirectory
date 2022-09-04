@@ -1,7 +1,8 @@
-package com.shante.countrydirectory
+package com.shante.countrydirectory.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.shante.countrydirectory.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
