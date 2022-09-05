@@ -2,21 +2,21 @@
     <!-- Base application theme. -->
     <style name="Theme.CountryDirectory" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/amber_200</item>
+        <item name="colorPrimaryVariant">@color/amber_700</item>
+        <item name="colorOnPrimary">@color/deep_orange_200</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/deep_orange_200</item>
+        <item name="colorSecondaryVariant">@color/deep_orange_700</item>
+        <item name="colorOnSecondary">@color/deep_orange_200</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="Widget.AppTheme.Button.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconTint">@color/deep_orange_200</item>
         <item name="strokeColor">@android:color/transparent</item>
-        <item name="iconTint">@color/teal_200</item>
         <item name="iconPadding">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -24,6 +24,11 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:minWidth">48dp</item>
         <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="shapedRectangle">
+        <item name="android:solidColor">@color/amber_200</item>
+        <item name="strokeColor">@color/amber_500</item>
     </style>
 
 </resources>

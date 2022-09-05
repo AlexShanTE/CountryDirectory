@@ -41,30 +41,32 @@ class CountryListFragment : Fragment() {
         viewModel.getAllCountries()
 
         viewModel.countryList.observe(viewLifecycleOwner) { countryList ->
-            adapter.submitList(countryList)
+            adapter.setCountryList(countryList)
         }
 
         binding.countryNameEditText.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(cs: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
                 val countryName = binding.countryNameEditText.text
                 with(binding.clearEditTextButton) {
-                    if (countryName.isNotEmpty()) {
+                    isEnabled = if (countryName.isNotEmpty()) {
                         setIconResource(R.drawable.ic_clear_edit_text)
-                        isEnabled = true
+                        true
                     } else {
                         setIconResource(R.drawable.ic_search)
-                        isEnabled = false
+                        false
                     }
                 }
             }
+
             override fun beforeTextChanged(s: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}
-            override fun afterTextChanged(arg0: Editable) { viewModel.getFilteredList(arg0.toString()) }
+            override fun afterTextChanged(arg0: Editable) {
+                viewModel.getFilteredList(arg0.toString())
+            }
         })
 
         binding.clearEditTextButton.setOnClickListener {
             binding.countryNameEditText.text.clear()
-            viewModel.countryList.value = emptyList()
-            viewModel.getAllCountries()
+            viewModel.countryList.value = viewModel.data
         }
 
     }.root

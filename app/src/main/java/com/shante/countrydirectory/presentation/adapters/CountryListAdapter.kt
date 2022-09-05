@@ -13,7 +13,18 @@ import kotlinx.coroutines.withContext
 
 class CountryListAdapter(
     private val countryInteractionListener: CountryListInteractionListener
-) : ListAdapter<Country, CountryListAdapter.ViewHolder>(DiffCallBack) {
+) : RecyclerView.Adapter<CountryListAdapter.ViewHolder>() {
+
+    private var countryList: List<Country>? = null
+
+    fun setCountryList(countryList: List<Country>) {
+        this.countryList = countryList
+        this.notifyDataSetChanged()
+    }
+
+    override fun getItemCount(): Int {
+        return countryList?.size ?: 0
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,7 +33,7 @@ class CountryListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        countryList?.get(position)?.let { holder.bind(it) }
     }
 
     class ViewHolder(
@@ -51,16 +62,6 @@ class CountryListAdapter(
         }
     }
 
-}
 
-private object DiffCallBack : DiffUtil.ItemCallback<Country>() {
-
-    override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean {
-        return oldItem.name == newItem.name
-    }
-
-    override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean {
-        return oldItem == newItem
-    }
 
 }
