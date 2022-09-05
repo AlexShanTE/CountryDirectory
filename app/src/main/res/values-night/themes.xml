@@ -7,7 +7,7 @@
         <item name="colorOnPrimary">@color/deep_orange_200</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/deep_orange_200</item>
-        <item name="colorSecondaryVariant">@color/deep_orange_700</item>
+        <item name="colorSecondaryVariant">@color/deep_orange_a400</item>
         <item name="colorOnSecondary">@color/deep_orange_200</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

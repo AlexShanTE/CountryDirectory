@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -42,6 +43,10 @@ class CountryListFragment : Fragment() {
 
         viewModel.countryList.observe(viewLifecycleOwner) { countryList ->
             adapter.setCountryList(countryList)
+            when (countryList.size) {
+                0 -> binding.noResultsImage.visibility = View.VISIBLE
+                else -> binding.noResultsImage.visibility = View.GONE
+            }
         }
 
         binding.countryNameEditText.addTextChangedListener(object : TextWatcher {
