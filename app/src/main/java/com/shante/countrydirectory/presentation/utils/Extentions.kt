@@ -1,4 +1,4 @@
-package com.shante.countrydirectory.utils
+package com.shante.countrydirectory.presentation.utils
 
 import com.shante.countrydirectory.domain.Language
 

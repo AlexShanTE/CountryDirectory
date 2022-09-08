@@ -1,4 +1,4 @@
-package com.shante.countrydirectory.utils
+package com.shante.countrydirectory.presentation.utils
 
 import android.util.Log
 import androidx.annotation.MainThread
@@ -47,6 +47,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
         value = null
     }
     companion object {
-        private const val TAG = "com.shante.countrydirectory.utils.SingleLiveEvent"
+        private const val TAG = "com.shante.countrydirectory.presentation.utils.SingleLiveEvent"
     }
 }

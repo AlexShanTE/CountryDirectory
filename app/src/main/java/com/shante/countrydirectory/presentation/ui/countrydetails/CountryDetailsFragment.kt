@@ -1,20 +1,18 @@
-package com.shante.countrydirectory.presentation.ui
+package com.shante.countrydirectory.presentation.ui.countrydetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.shante.countrydirectory.R
 import com.shante.countrydirectory.databinding.CountryDetailsFragmentBinding
-import com.shante.countrydirectory.presentation.viewModels.CountryListViewModel
-import com.shante.countrydirectory.utils.getFormattedString
+import com.shante.countrydirectory.presentation.utils.getFormattedString
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CountryDetailsFragment : Fragment() {
-
-    private val viewModel: CountryListViewModel by viewModels()
 
     private val args by navArgs<CountryDetailsFragmentArgs>()
 

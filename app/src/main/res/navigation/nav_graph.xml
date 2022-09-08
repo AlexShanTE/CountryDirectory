@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/countryListFragment"
-        android:name="com.shante.countrydirectory.presentation.ui.CountryListFragment"
+        android:name="com.shante.countrydirectory.presentation.ui.countrylist.CountryListFragment"
         android:label="CountryListFragment"
         tools:layout="@layout/country_list_fragment"
         >
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/countryDetailsFragment"
-        android:name="com.shante.countrydirectory.presentation.ui.CountryDetailsFragment"
+        android:name="com.shante.countrydirectory.presentation.ui.countrydetails.CountryDetailsFragment"
         android:label="CountryDetailsFragment"
         tools:layout="@layout/country_details_fragment"
         >

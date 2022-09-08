@@ -1,19 +1,21 @@
-package com.shante.countrydirectory.presentation.viewModels
+package com.shante.countrydirectory.presentation.ui.countrylist
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.shante.countrydirectory.data.RemoteRepositoryImpl
 import com.shante.countrydirectory.domain.Country
-import com.shante.countrydirectory.presentation.adapters.CountryListInteractionListener
-import com.shante.countrydirectory.utils.SingleLiveEvent
+import com.shante.countrydirectory.domain.CountryRepository
+import com.shante.countrydirectory.presentation.utils.SingleLiveEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class CountryListViewModel : ViewModel(), CountryListInteractionListener {
-
-    private val repository = RemoteRepositoryImpl
+@HiltViewModel
+class CountryListViewModel @Inject constructor(
+    private val repository: CountryRepository
+) : ViewModel() {
 
     var data: List<Country> = emptyList()
     val countryList = MutableLiveData<List<Country>>()
@@ -27,7 +29,7 @@ class CountryListViewModel : ViewModel(), CountryListInteractionListener {
         }
         viewModelScope.launch {
             Dispatchers.IO
-            val response = repository.getCountryList()
+            val response = repository.get()
             if (response.isNotEmpty()) {
                 withContext(Dispatchers.Main) {
                     data = response
@@ -45,7 +47,7 @@ class CountryListViewModel : ViewModel(), CountryListInteractionListener {
         }
     }
 
-    override fun onCountryCardClicked(country: Country) {
+    fun onCountryCardClicked(country: Country) {
         navigateToCountryDetailsScreen.value = country
     }
 

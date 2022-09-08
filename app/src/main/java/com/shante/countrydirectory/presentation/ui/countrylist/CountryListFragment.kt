@@ -1,4 +1,4 @@
-package com.shante.countrydirectory.presentation.ui
+package com.shante.countrydirectory.presentation.ui.countrylist
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,14 +6,16 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat.FontCallback.getHandler
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.shante.countrydirectory.R
 import com.shante.countrydirectory.databinding.CountryListFragmentBinding
-import com.shante.countrydirectory.presentation.adapters.CountryListAdapter
-import com.shante.countrydirectory.presentation.viewModels.CountryListViewModel
+import com.shante.countrydirectory.domain.Country
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CountryListFragment : Fragment() {
 
     private val viewModel: CountryListViewModel by viewModels()
@@ -28,7 +30,9 @@ class CountryListFragment : Fragment() {
                 )
             findNavController().navigate(direction)
         }
+
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,13 +40,16 @@ class CountryListFragment : Fragment() {
         savedInstanceState: Bundle?
     ) = CountryListFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
 
-        val adapter = CountryListAdapter(viewModel)
+        val adapter = CountryListAdapter { country: Country ->
+            viewModel.onCountryCardClicked(country)
+        }
+
         binding.countriesRecyclerView.adapter = adapter
 
         viewModel.getAllCountries()
 
         viewModel.countryList.observe(viewLifecycleOwner) { countryList ->
-            adapter.setCountryList(countryList)
+            adapter.submitList(countryList) //todo scrolling
             when (countryList.size) {
                 0 -> binding.noResultsImage.visibility = View.VISIBLE
                 else -> binding.noResultsImage.visibility = View.GONE
@@ -74,6 +81,8 @@ class CountryListFragment : Fragment() {
             viewModel.countryList.value = viewModel.data
         }
 
+
     }.root
+
 
 }
